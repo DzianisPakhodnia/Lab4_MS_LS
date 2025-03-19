@@ -54,8 +54,6 @@ namespace Lab4_MS_LS
             return arr;
         }
 
-        
-
         public void File_Load(string filestr)
         {
             // получение данных из файла
@@ -350,7 +348,7 @@ namespace Lab4_MS_LS
             return res;
         }
 
-        class Priority_Operation
+        public class Priority_Operation
         {
             public int priority;
             public int operation;
