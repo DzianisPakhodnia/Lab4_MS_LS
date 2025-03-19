@@ -59,7 +59,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(505, 42);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(537, 230);
+            this.dataGridView2.Size = new System.Drawing.Size(537, 296);
             this.dataGridView2.TabIndex = 19;
             // 
             // dataGridViewTextBoxColumn1
@@ -72,10 +72,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Collumn1});
-            this.dataGridView1.Location = new System.Drawing.Point(505, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(505, 357);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(537, 114);
+            this.dataGridView1.Size = new System.Drawing.Size(537, 239);
             this.dataGridView1.TabIndex = 18;
             // 
             // Collumn1
@@ -88,7 +88,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 42);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(487, 350);
+            this.richTextBox1.Size = new System.Drawing.Size(487, 554);
             this.richTextBox1.TabIndex = 17;
             this.richTextBox1.Text = "";
             // 
@@ -104,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 398);
+            this.button1.Location = new System.Drawing.Point(12, 602);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(1030, 39);
             this.button1.TabIndex = 15;
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 448);
+            this.ClientSize = new System.Drawing.Size(1054, 653);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -128,7 +128,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Лабораторная работа № 4 MS_LS_ASAP Зубарев А.А.";
+            this.Text = "Лабораторная работа № 4 MS_LS_ASAP";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

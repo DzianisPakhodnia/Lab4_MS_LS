@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Lab4_MS_LS.Logic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace Lab4_MS_LS
 {
-    class CMS_LS
+    public class CMS_LS
     {
         public int countOperations = 0;
         public int countTypes = 0;
@@ -13,6 +14,10 @@ namespace Lab4_MS_LS
         public int[] countProcessorsByTypes;
         public int[] TimeCalculationByTypes;
         public int[][] arrayH;
+
+        public Model model { get; set; } = new Model();
+
+
         public List<List<int>> List_chains = new List<List<int>>();
         public List<List<int>> steps = new List<List<int>>();      
         public List<List<List<int>>> List_operations_on_steps = new List<List<List<int>>>();
@@ -35,88 +40,17 @@ namespace Lab4_MS_LS
             List_operations_on_steps.Clear();
 
         }
-        private string Find_value(string s)
-        {
-            int index = s.IndexOf(':') + 2;            
-            return s.Substring(index);   // извлечение подстроки с указанной позиции и до конца            
-        }
 
-        private int[] GetArray(string s)
+        public void File_Load(Model data)
         {
+
+            model.CountOperation = data.CountOperation;
+            model.CountTypesOfOperations = data.CountTypesOfOperations;
+            model.Types = data.Types;
+            model.CountProcessors = data.CountProcessors;
+            model.TimeOfCalculation = data.TimeOfCalculation;
+            model.TableH = data.TableH;
             
-            string[] nums = s.Split(' ');
-            int[] arr = new int[nums.Length];
-            for (int i = 0; i < nums.Length; i++)
-            {
-               arr[i] = int.Parse(nums[i]);
-            }
-                       
-            return arr;
-        }
-
-        public void File_Load(string filestr)
-        {
-            // получение данных из файла
-
-            StreamReader file = new StreamReader(filestr);
-            //step 1 чтение кол-ва операций
-            string buff = "";
-            buff = file.ReadLine();
-
-            buff = Find_value(buff);            
-            countOperations =  Convert.ToInt32(buff);
-
-            //step 2 чтение кол-ва типов операций
-            buff = "";
-            buff = file.ReadLine();
-            buff = Find_value(buff);
-            countTypes = Convert.ToInt32(buff);
-
-            //step 3 чтение операций каждого типа
-            arrayTypes = new int[countTypes][];            
-            for (int i = 0; i < countTypes; i++)
-            {
-                buff = "";
-                buff = file.ReadLine();
-                buff = Find_value(buff);              
-                arrayTypes[i] = GetArray(buff);
-            }
-
-            //step 4 чтение количества процессоров каждого типа
-            countProcessorsByTypes = new int[countTypes];
-            for (int i = 0; i < countTypes; i++)
-            {
-                buff = "";
-                buff = file.ReadLine();
-                buff = Find_value(buff);
-                countProcessorsByTypes[i] = Convert.ToInt32(buff);
-            }
-
-
-            //step 5 чтение времени выполнения операции каждого типа
-            TimeCalculationByTypes = new int[countTypes];
-            for (int i = 0; i < countTypes; i++)
-            {
-                buff = "";
-                buff = file.ReadLine();
-                buff = Find_value(buff);
-                TimeCalculationByTypes[i] = Convert.ToInt32(buff);
-            }
-
-            //step 6 чтение таблицы смежности
-            buff = "";
-            buff = file.ReadLine();          
-
-            arrayH = new int[countOperations][];
-
-            for (int i = 0; i < countOperations; i++)
-            {
-                buff = "";
-                buff = file.ReadLine();                
-                arrayH[i] = GetArray(buff);
-            }
-
-            file.Close();                
         }
 
         public void Planning()
@@ -348,32 +282,7 @@ namespace Lab4_MS_LS
             return res;
         }
 
-        public class Priority_Operation
-        {
-            public int priority;
-            public int operation;
-
-            public Priority_Operation(int priority, int operation)
-            {
-                this.priority = priority;
-                this.operation = operation;
-            }
-        }
-
-        // класс-компаратор по убыванию
-         class CompInv<T> : IComparer<T>
-        where T : Priority_Operation
-    {
-        // Реализуем интерфейс IComparer<T>
-        public int Compare(T x, T y)
-        {
-            if (x.priority < y.priority)
-                return 1;
-            if (x.priority > y.priority)
-                return -1;
-            else return 0;
-        }
-    }
+        
 
         private List<int> GetOperationsByType(int type, List<int> Ready)
         {
